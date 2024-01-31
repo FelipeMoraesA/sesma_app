@@ -873,10 +873,10 @@ def situacao_pp(file: str, skip: int):
 	data = data.dropna(how='all', axis='columns')
 	data = data.dropna(thresh=2, axis='index')
 
-	data.columns = [
-		'PreparacaoPagamento', 'OrdemBancaria', 'Favorecido', 'NotaEmpenho', 
-		'CpfCnpj', 'Fonte', 'GND', 'Data', 'Valor', 'SituacaoPP'
-	]
+	#data.columns = [
+	#	'PreparacaoPagamento', 'OrdemBancaria', 'Favorecido', 'NotaEmpenho', 
+	#	'CpfCnpj', 'Fonte', 'GND', 'Data', 'Valor', 'SituacaoPP'
+	#]
 
 	return data
 
