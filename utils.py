@@ -278,7 +278,7 @@ def tratar_processo(x):
 
 	except:
 
-		return 'Não Identificável'
+		return x
 
 def pagamento(file: str, skip: int):
 

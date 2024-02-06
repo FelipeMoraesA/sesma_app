@@ -41,7 +41,6 @@ st.markdown(css, unsafe_allow_html=True)
 
 st.write('''# **Tratamento das Fontes de Dados - SES/MA**''')
 st.write('''_Versão 1.12 (downgrade)_''')
-st.write('''This place is under new management by order of the peaky blinders''')
 
 c1, c2, c3, c4 = st.columns(4)
 
