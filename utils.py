@@ -911,8 +911,8 @@ def orc(file: str, skip: int):
 	df = read_excel(
 		io = file, 
 		skiprows = skip - 1,
-		usecols = 'B:Z',
-		header = None
+		usecols = 'B:Z'#,
+		#header = None
 	)
 
 	df = df.dropna(how='all', axis='columns')
