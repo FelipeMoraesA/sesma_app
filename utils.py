@@ -911,7 +911,7 @@ def orc(file: str, skip: int):
 	df = read_excel(
 		io = file, 
 		skiprows = skip - 1,
-		usecols = 'B:Z',
+		usecols = 'B:Y',
 		header = None
 	)
 
