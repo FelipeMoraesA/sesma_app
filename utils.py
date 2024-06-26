@@ -1,8 +1,7 @@
 
 from re import sub, findall, match
 from pandas import concat, isna, read_excel, ExcelWriter, DataFrame
-#from numpy import nan
-import numpy
+from numpy import nan
 from io import BytesIO
 import warnings
 import base64
