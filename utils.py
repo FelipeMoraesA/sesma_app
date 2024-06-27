@@ -955,9 +955,9 @@ def orc(file: str, skip: int):
 
 	df[11] = df[11] + df[12]
 
-	df[['CodigoSubacao', 'NomeSubacao']] = df['subacao'].str.split(' ', 1, expand = True)
+	df[['CodigoSubacao', 'NomeSubacao']] = df['subacao'].str.split(n = 1, expand = True)
 
-	df[['Fonte', 'NomeFonte']] = df['fonte'].str.split(' ', 1, expand = True)
+	df[['Fonte', 'NomeFonte']] = df['fonte'].str.split(n = 1, expand = True)
 
 	df = df.drop(columns = [8, 10, 12, 'subacao', 'fonte', 'NomeFonte'])
 
