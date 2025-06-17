@@ -1481,7 +1481,7 @@ def converter_br(serie):
              .pipe(pd.to_numeric, errors='coerce') # converte para float
     )
 
-def orc_25(file: str, skip: int)
+def orc_25(file: str, skip: int):
 
     df = pd.read_excel('orçamento.xls', skiprows= skip-2, usecols='B:V')
     
