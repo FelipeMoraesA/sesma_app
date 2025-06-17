@@ -1,6 +1,6 @@
 
 from re import sub, findall, match, IGNORECASE
-from pandas import concat, isna, read_excel, ExcelWriter, DataFrame
+from pandas import concat, isna, read_excel, ExcelWriter, DataFrame, to_numeric
 from numpy import nan
 from io import BytesIO
 import warnings
@@ -1478,12 +1478,12 @@ def converter_br(serie):
              .str.replace('.', '', regex=False)    # remove separador de milhar
              .str.replace(',', '.', regex=False)   # troca vírgula decimal por ponto
              .str.strip()
-             .pipe(pd.to_numeric, errors='coerce') # converte para float
+             .pipe(to_numeric, errors='coerce') # converte para float
     )
 
 def orc_25(file: str, skip: int):
 
-    df = pd.read_excel('orçamento.xls', skiprows= skip-2, usecols='B:V')
+    df = read_excel('orçamento.xls', skiprows= skip-2, usecols='B:V')
     
     df.dropna(how='all', axis='columns', inplace = True)
     df.dropna(how='all', axis='index', inplace = True)
