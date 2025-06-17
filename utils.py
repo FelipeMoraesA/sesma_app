@@ -1461,3 +1461,80 @@ def export_excel3(data1, data2, data3):
 	processed_data = output.getvalue()
 
 	return processed_data
+
+def classificar_orc_25(rotulo):
+    if re.match(r'^\d{5,}\b[\s/\-]?', rotulo, re.IGNORECASE):
+        return 'Subação'
+    elif re.match(r'^\d{2}\.\d{2}\s', rotulo):
+        return 'Natureza'
+    elif re.match(r'^\d+\.\d+\.\d+\.\d+\s', rotulo):
+        return 'Fonte'
+    else:
+        return 'Ignorar'
+
+def converter_br(serie):
+    return (
+        serie.astype(str)
+             .str.replace('.', '', regex=False)    # remove separador de milhar
+             .str.replace(',', '.', regex=False)   # troca vírgula decimal por ponto
+             .str.strip()
+             .pipe(pd.to_numeric, errors='coerce') # converte para float
+    )
+
+def orc_25(file: str, skip: int)
+
+    df = pd.read_excel('orçamento.xls', skiprows= skip-2, usecols='B:V')
+    
+    df.dropna(how='all', axis='columns', inplace = True)
+    df.dropna(how='all', axis='index', inplace = True)
+    
+    df = df.iloc[:-4]
+    
+    df.drop(['Unnamed: 2', 'Unnamed: 4', 'Unnamed: 20'], axis = 1, inplace = True)
+    
+    df.rename(columns={
+        'Unnamed: 1': 'Natureza',
+        'Unnamed: 3': 'Dotação Inicial',
+        'Unnamed: 5': 'Atualizado',
+        'Unnamed: 7': 'Indisponibilidades',
+        'Unnamed: 9': 'Saldo de Pré-Empenho',
+        'Unnamed: 11': 'Empenhado',
+        'Unnamed: 13': 'Disponível',
+        'Unnamed: 15': 'Liquidado',
+        'Unnamed: 17': 'Pago',
+        'Unnamed: 19': 'A Liquidar',
+        'Unnamed: 21': 'A Pagar'
+        }, inplace=True)
+    
+    df['classificacao'] = df['Natureza'].apply(classificar_orc_25)
+    
+    df = df.loc[df['classificacao'] != 'Ignorar'].reset_index(drop=True)
+    
+    df['Fonte'] = df['Natureza'].str.split(' ').str[0].where(df['classificacao'] == 'Fonte', np.nan)
+    df['Subação'] = df['Natureza'].where(df['classificacao'] == 'Subação', np.nan)
+    
+    df['Fonte'] = df['Fonte'].ffill()
+    df['Subação'] = df['Subação'].ffill()
+    
+    df = df.loc[df['classificacao'] == 'Natureza'].reset_index(drop=True)
+    
+    df[['Cod Subação', 'Nome Subação']] = df['Subação'].str.split(' ', n=1, expand=True)
+    
+    df[['Cod Natureza', 'Nome Natureza']] = df['Natureza'].str.split(' ', n=1, expand=True)
+
+    df.drop(columns=['classificacao', 'Subação', 'Natureza'], inplace=True)
+    
+    df = df[['Fonte', 'Cod Subação', 'Nome Subação', 'Cod Natureza', 'Nome Natureza', 'Dotação Inicial', 'Atualizado', 'Indisponibilidades', 'Saldo de Pré-Empenho',
+                   'Empenhado', 'Disponível', 'Liquidado', 'Pago', 'A Liquidar', 'A Pagar']]
+    
+    df.fillna(0, inplace=True)
+    
+    colunas_para_converter = ['Dotação Inicial', 'Atualizado', 'Indisponibilidades', 'Saldo de Pré-Empenho', 'Empenhado', 'Disponível', 'Liquidado', 'Pago', 'A Liquidar', 'A Pagar']
+    for coluna in colunas_para_converter:
+        df[coluna] = converter_br(df[coluna])
+    
+    return df
+
+
+
+
