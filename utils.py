@@ -1483,7 +1483,7 @@ def converter_br(serie):
 
 def orc_25(file: str, skip: int):
 
-    df = read_excel('orçamento.xls', skiprows= skip-2, usecols='B:V')
+    df = read_excel(file, skiprows= skip-2, usecols='B:V')
     
     df.dropna(how='all', axis='columns', inplace = True)
     df.dropna(how='all', axis='index', inplace = True)
