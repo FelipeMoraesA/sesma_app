@@ -53,8 +53,8 @@ with c1:
 				'Relatório de Diárias', 'Extrato Bancário', 'Listar Ordem Bancária',
 				'Imprimir Pagamento Efetuado', 'Imprimir Preparação Pagamento',
 				'Listar Preparação Pagamento', 'Crédito Disponível', 'Listar Restos',
-				'Imprimir Nota Empenho Célula', 'Imprimir Nota Empenho Célula (2023-2021)', 
-				'Imprimir Nota Empenho Célula (2019)', 'Imprimir Nota Empenho Célula (2020)',
+				'Imprimir Nota Empenho Célula', 'Imprimir Nota Empenho Célula (2023-2021)',
+				'Imprimir Nota Empenho Célula (2019)', 'Imprimir Nota Empenho Célula (2020)', 'Imprimir Execução Orçamentária (2025)',
 				'Imprimir Execução Orçamentária', 'Imprimir Execução Orçamentária (2023-2020)', 'Listar Pré-Empenho',
 				'Imprimir Nota Pré-Empenho Célula', 'Detalhar Conta 8.2.1.7.2.01',
 				'Imprimir Liquidação Credor', 'Imprimir Despesa Certificada Situação',
@@ -512,6 +512,30 @@ elif type_problem == 'Imprimir Nota Empenho Célula (2020)' and file != None:
 		try:
 	
 			data = nota_empenho_celula3(file = file, skip = info_skip)
+	
+			st.dataframe(data)
+	
+			st.success('Arquivo lido com sucesso!')
+			
+			st.download_button(
+				label = 'Baixar Planilha',
+				data = export_excel(data = data),
+				file_name = type_problem + ' ' + str(int(datetime.now().timestamp())) + '.xlsx'
+			)
+	
+		except:
+	
+			st.error('Erro ao tentar ler o arquivo, verifique a quantidade de linhas a pular.')
+
+elif type_problem == 'Imprimir Execução Orçamentária (2025)' and file != None:
+
+	visualizar = st.button('Visualizar Planilha')
+
+	if visualizar:
+
+		try:
+	
+			data = orc_25(file = file, skip = info_skip)
 	
 			st.dataframe(data)
 	
