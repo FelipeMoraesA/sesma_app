@@ -86,7 +86,6 @@ st.sidebar.write(
 	Listar Preparação Pagamento - primeiro número de preparação de pagamento;\n
 	Imprimir Nota Empenho Célula - primeiro nome de subfunção (Agrupamento Nível 1 deve ser "Subfunção");\n
 	Imprimir Execução Orçamentária - primeio código de subação (19);\n
- 	Imprimir Execução Orçamentária (2025) - Fonte, Subação, Cat. Econ. Primeira Fonte (21);\n
 	Listar Pré Empenho - primeira nota de pré-empenho;\n
 	Imprimir Nota Pré-Empenho Célula - primeira linha da UG;\n
 	Detalhar Conta 8.2.1.7.2.01 - primeiro número de conta/fonte;\n
