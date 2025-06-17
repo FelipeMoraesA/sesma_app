@@ -1,5 +1,5 @@
 
-from re import sub, findall, match
+from re import sub, findall, match, IGNORECASE
 from pandas import concat, isna, read_excel, ExcelWriter, DataFrame
 from numpy import nan
 from io import BytesIO
@@ -1463,11 +1463,11 @@ def export_excel3(data1, data2, data3):
 	return processed_data
 
 def classificar_orc_25(rotulo):
-    if re.match(r'^\d{5,}\b[\s/\-]?', rotulo, re.IGNORECASE):
+    if match(r'^\d{5,}\b[\s/\-]?', rotulo, IGNORECASE):
         return 'Subação'
-    elif re.match(r'^\d{2}\.\d{2}\s', rotulo):
+    elif match(r'^\d{2}\.\d{2}\s', rotulo):
         return 'Natureza'
-    elif re.match(r'^\d+\.\d+\.\d+\.\d+\s', rotulo):
+    elif match(r'^\d+\.\d+\.\d+\.\d+\s', rotulo):
         return 'Fonte'
     else:
         return 'Ignorar'
@@ -1510,8 +1510,8 @@ def orc_25(file: str, skip: int):
     
     df = df.loc[df['classificacao'] != 'Ignorar'].reset_index(drop=True)
     
-    df['Fonte'] = df['Natureza'].str.split(' ').str[0].where(df['classificacao'] == 'Fonte', np.nan)
-    df['Subação'] = df['Natureza'].where(df['classificacao'] == 'Subação', np.nan)
+    df['Fonte'] = df['Natureza'].str.split(' ').str[0].where(df['classificacao'] == 'Fonte', nan)
+    df['Subação'] = df['Natureza'].where(df['classificacao'] == 'Subação', nan)
     
     df['Fonte'] = df['Fonte'].ffill()
     df['Subação'] = df['Subação'].ffill()
