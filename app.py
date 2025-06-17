@@ -85,6 +85,7 @@ st.sidebar.write(
 	Imprimir Preparação Pagamento - primeira ordem bancária;\n
 	Listar Preparação Pagamento - primeiro número de preparação de pagamento;\n
 	Imprimir Nota Empenho Célula - primeiro nome de subfunção (Agrupamento Nível 1 deve ser "Subfunção");\n
+	Imprimir Execução Orçamentária (2025) - Fonte, Subação, Cat. Eco. - primeira fonte: 21 linhas;\n
 	Imprimir Execução Orçamentária - primeio código de subação (19);\n
 	Listar Pré Empenho - primeira nota de pré-empenho;\n
 	Imprimir Nota Pré-Empenho Célula - primeira linha da UG;\n
