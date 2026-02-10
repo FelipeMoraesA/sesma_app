@@ -432,10 +432,11 @@ elif type_problem == 'Listar Preparação Pagamento' and file != None:
 	
 			st.error('Erro ao tentar ler o arquivo, verifique a quantidade de linhas a pular.')
 
+elif type_problem == 'Imprimir Nota Empenho Célula'
+	st.write('Geralmente 17 linhas - Linha da Primeira Subfunção')	
+
 elif type_problem == 'Imprimir Nota Empenho Célula' and file != None:
 
-	st.write('Geralmente 17 linhas')
-	
 	visualizar = st.button('Visualizar Planilha')
 
 	if visualizar:
