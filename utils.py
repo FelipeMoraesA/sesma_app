@@ -443,9 +443,8 @@ def listar_ordem(file: str, skip: int):
 	return tabela.reset_index(drop=True)
 
 def listar_ordem26(file: str, skip: int):
-	st.write('vai rodar')
 
-	df = pd.read_excel(
+	df = read_excel(
 		io = file,  
 		skiprows = skip - 2,
 		usecols = 'A:H',
