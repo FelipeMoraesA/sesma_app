@@ -434,7 +434,7 @@ elif type_problem == 'Listar Preparação Pagamento' and file != None:
 
 elif type_problem == 'Imprimir Nota Empenho Célula':
 
-	st.write('Geralmente 17 linhas - Linha da Primeira Subfunção')	
+	st.toast('Geralmente 17 linhas - Linha da Primeira Subfunção')	
 
 elif type_problem == 'Imprimir Nota Empenho Célula' and file != None:
 
