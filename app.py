@@ -434,6 +434,8 @@ elif type_problem == 'Listar Preparação Pagamento' and file != None:
 
 elif type_problem == 'Imprimir Nota Empenho Célula' and file != None:
 
+	st.write('Geralmente 17 linhas')
+	
 	visualizar = st.button('Visualizar Planilha')
 
 	if visualizar:
