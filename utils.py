@@ -445,11 +445,11 @@ def listar_ordem(file: str, skip: int):
 def listar_ordem26(file: str, skip: int):
 
 	df = pd.read_excel(
-	io = file,  
-	skiprows = skip - 2,
-	usecols = 'A:H',
-    header=None
-	)
+		io = file,  
+		skiprows = skip - 2,
+		usecols = 'A:H',
+    	header=None
+		)
 
 	df = df.dropna(how='all')
 
