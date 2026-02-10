@@ -54,7 +54,7 @@ with c1:
 				'Imprimir Pagamento Efetuado', 'Imprimir Preparação Pagamento',
 				'Listar Preparação Pagamento', 'Crédito Disponível', 'Listar Restos',
 				'Imprimir Nota Empenho Célula', 'Imprimir Nota Empenho Célula (2023-2021)',
-				'Imprimir Nota Empenho Célula (2019)', 'Imprimir Nota Empenho Célula (2020)', 'Imprimir Execução Orçamentária (2025/2026)',
+				'Imprimir Nota Empenho Célula (2019)', 'Imprimir Nota Empenho Célula (2020)', 'Imprimir Execução Orçamentária (2025-2026)',
 				'Imprimir Execução Orçamentária', 'Imprimir Execução Orçamentária (2023-2020)', 'Listar Pré-Empenho',
 				'Imprimir Nota Pré-Empenho Célula', 'Detalhar Conta 8.2.1.7.2.01',
 				'Imprimir Liquidação Credor', 'Imprimir Despesa Certificada Situação',
@@ -85,7 +85,7 @@ st.sidebar.write(
 	Imprimir Preparação Pagamento - primeira ordem bancária;\n
 	Listar Preparação Pagamento - primeiro número de preparação de pagamento;\n
 	Imprimir Nota Empenho Célula - primeiro nome de subfunção (Agrupamento Nível 1 deve ser "Subfunção");\n
-	Imprimir Execução Orçamentária (2025/2026) - Agrupamento (Fonte, Subação, Categoria Econômica) - primeira fonte: 21 linhas;\n
+	Imprimir Execução Orçamentária (2025-2026) - Agrupamento (Fonte, Subação, Categoria Econômica) - primeira fonte: 21 linhas;\n
 	Imprimir Execução Orçamentária - primeio código de subação (19);\n
 	Listar Pré Empenho - primeira nota de pré-empenho;\n
 	Imprimir Nota Pré-Empenho Célula - primeira linha da UG;\n
@@ -536,11 +536,11 @@ elif type_problem == 'Imprimir Nota Empenho Célula (2020)' and file != None:
 	
 			st.error('Erro ao tentar ler o arquivo, verifique a quantidade de linhas a pular.')
 
-elif type_problem == 'Imprimir Execução Orçamentária (2025/2026)':
+elif type_problem == 'Imprimir Execução Orçamentária (2025-2026)':
 
 	st.info('Geralmente pular 19 linhas - Primeira Subação')
 
-elif type_problem == 'Imprimir Execução Orçamentária (2025/2026)' and file != None:
+elif type_problem == 'Imprimir Execução Orçamentária (2025-2026)' and file != None:
 
 	visualizar = st.button('Visualizar Planilha')
 
