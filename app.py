@@ -536,10 +536,6 @@ elif type_problem == 'Imprimir Nota Empenho Célula (2020)' and file != None:
 	
 			st.error('Erro ao tentar ler o arquivo, verifique a quantidade de linhas a pular.')
 
-elif type_problem == 'Imprimir Execução Orçamentária (2025-2026)':
-
-	st.toast('Geralmente pular 19 linhas - Primeira Subação')
-
 elif type_problem == 'Imprimir Execução Orçamentária (2025-2026)' and file != None:
 
 	visualizar = st.button('Visualizar Planilha')
@@ -563,6 +559,11 @@ elif type_problem == 'Imprimir Execução Orçamentária (2025-2026)' and file !
 		except:
 	
 			st.error('Erro ao tentar ler o arquivo, verifique a quantidade de linhas a pular.')
+
+elif type_problem == 'Imprimir Execução Orçamentária (2025-2026)':
+
+	st.warning('Geralmente pular 19 linhas - Primeira Subação')
+
 
 elif type_problem == 'Imprimir Execução Orçamentária' and file != None:
 
