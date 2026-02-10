@@ -538,7 +538,7 @@ elif type_problem == 'Imprimir Nota Empenho Célula (2020)' and file != None:
 
 elif type_problem == 'Imprimir Execução Orçamentária (2025-2026)':
 
-	st.success('Geralmente pular 19 linhas - Primeira Subação')
+	st.toast('Geralmente pular 19 linhas - Primeira Subação')
 
 elif type_problem == 'Imprimir Execução Orçamentária (2025-2026)' and file != None:
 
