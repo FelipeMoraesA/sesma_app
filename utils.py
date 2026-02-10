@@ -442,6 +442,54 @@ def listar_ordem(file: str, skip: int):
 
 	return tabela.reset_index(drop=True)
 
+def listar_ordem26(file: str, skip: int):
+
+	df = pd.read_excel(
+	io = file,  
+	skiprows = skip - 2,
+	usecols = 'A:H',
+    header=None
+	)
+
+	df = df.dropna(how='all')
+
+	df['tipo'] = None
+	df.loc[df[0].astype(str).str.contains('OB', na=False), 'tipo'] = 'OB'
+	df.loc[df[1].astype(str).str.contains('PP', na=False), 'tipo'] = 'PP'
+
+	df['OrdemBancaria'] = df[0].where(df['tipo'] == 'OB')
+	df['OrdemBancaria'] = df['OrdemBancaria'].ffill()
+
+	pp = df[df['tipo'] == 'PP'].copy()
+
+	pp['PreparacaoPagamento'] = pp[1]
+	pp['Fonte'] = pp[2]
+	pp['Credor Completo'] = pp[3]
+	pp['Destino'] = pp[5]
+	pp['Valor'] = pp[6]
+
+	ob_info = df[df['tipo'] == 'OB'][[0,1,2,6,7]].copy()
+	ob_info.columns = ['OrdemBancaria','DataOrdem','Origem','ValorOB','SituacaoOB']
+
+	pp = pp.merge(ob_info, on='OrdemBancaria', how='left')
+
+	pp[['Credor', 'Nome Credor']] = pp['Credor Completo'].str.split(' ', n=1, expand=True)
+
+	tabela = pp[[
+    	'OrdemBancaria',
+    	'PreparacaoPagamento',
+    	'Origem',
+    	'Fonte',
+    	'SituacaoOB',
+    	'DataOrdem',
+    	'Credor',
+    	'Nome Credor',
+    	'Destino',
+    	'Valor'
+	]].reset_index(drop=True)
+
+	return tabela
+
 def check_pre_empenho(x):
 
 	if len(x) > 1:
