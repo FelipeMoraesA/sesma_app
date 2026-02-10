@@ -560,7 +560,7 @@ elif type_problem == 'Imprimir Execução Orçamentária (2025-2026)' and file !
 	
 			st.error('Erro ao tentar ler o arquivo, verifique a quantidade de linhas a pular.')
 
-elif type_problem == 'Imprimir Execução Orçamentária (2025-2026)'
+elif type_problem == 'Imprimir Execução Orçamentária (2025-2026)':
 
 	st.info('Geralmente pular 19 linhas - Primeira Subação')	
 
