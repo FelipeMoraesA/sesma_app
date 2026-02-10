@@ -449,7 +449,7 @@ def listar_ordem26(file: str, skip: int):
 		skiprows = skip - 2,
 		usecols = 'A:H',
     	header=None
-		)
+	)
 
 	df = df.dropna(how='all')
 
