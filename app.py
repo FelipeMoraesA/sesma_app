@@ -360,10 +360,6 @@ elif type_problem == 'Listar Ordem Bancária' and file != None:
 	
 			st.error('Erro ao tentar ler o arquivo, verifique a quantidade de linhas a pular.')
 
-elif type_problem == 'Imprimir Pagamento Efetuado':
-
-	st.info('Geralmente pular 20 linhas - Primeiro Credor')
-
 elif type_problem == 'Imprimir Pagamento Efetuado' and file != None:
 
 	visualizar = st.button('Visualizar Planilha')
@@ -387,6 +383,10 @@ elif type_problem == 'Imprimir Pagamento Efetuado' and file != None:
 		except:
 	
 			st.error('Erro ao tentar ler o arquivo, verifique a quantidade de linhas a pular.')
+
+elif type_problem == 'Imprimir Pagamento Efetuado':
+
+	st.info('Geralmente pular 20 linhas - Primeiro Credor')
 
 elif type_problem == 'Imprimir Preparação Pagamento' and file != None:
 
@@ -436,10 +436,6 @@ elif type_problem == 'Listar Preparação Pagamento' and file != None:
 	
 			st.error('Erro ao tentar ler o arquivo, verifique a quantidade de linhas a pular.')
 
-elif type_problem == 'Imprimir Nota Empenho Célula':
-
-	st.info('Geralmente pular 17 linhas - Primeira Subfunção')	
-
 elif type_problem == 'Imprimir Nota Empenho Célula' and file != None:
 
 	visualizar = st.button('Visualizar Planilha')
@@ -487,6 +483,10 @@ elif type_problem == 'Imprimir Nota Empenho Célula (2023-2021)' and file != Non
 		except:
 	
 			st.error('Erro ao tentar ler o arquivo, verifique a quantidade de linhas a pular.')
+
+elif type_problem == 'Imprimir Nota Empenho Célula':
+
+	st.info('Geralmente pular 17 linhas - Primeira Subfunção')	
 
 elif type_problem == 'Imprimir Nota Empenho Célula (2019)' and file != None:
 
@@ -560,10 +560,9 @@ elif type_problem == 'Imprimir Execução Orçamentária (2025-2026)' and file !
 	
 			st.error('Erro ao tentar ler o arquivo, verifique a quantidade de linhas a pular.')
 
-elif type_problem == 'Imprimir Execução Orçamentária (2025-2026)':
+elif type_problem == 'Imprimir Execução Orçamentária (2025-2026)'
 
-	st.warning('Geralmente pular 19 linhas - Primeira Subação')
-
+	st.info('Geralmente pular 19 linhas - Primeira Subação')	
 
 elif type_problem == 'Imprimir Execução Orçamentária' and file != None:
 
