@@ -452,7 +452,7 @@ def listar_ordem26(file: str, skip: int):
 	)
 
 	df = df.dropna(how='all')
-
+	st.write(df)
 	df['tipo'] = None
 	df.loc[df[0].astype(str).str.contains('OB', na=False), 'tipo'] = 'OB'
 	df.loc[df[1].astype(str).str.contains('PP', na=False), 'tipo'] = 'PP'
