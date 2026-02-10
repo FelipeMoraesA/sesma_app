@@ -443,6 +443,7 @@ def listar_ordem(file: str, skip: int):
 	return tabela.reset_index(drop=True)
 
 def listar_ordem26(file: str, skip: int):
+	st.write('vai rodar')
 
 	df = pd.read_excel(
 		io = file,  
@@ -452,7 +453,7 @@ def listar_ordem26(file: str, skip: int):
 	)
 
 	df = df.dropna(how='all')
-	st.write(df)
+	
 	df['tipo'] = None
 	df.loc[df[0].astype(str).str.contains('OB', na=False), 'tipo'] = 'OB'
 	df.loc[df[1].astype(str).str.contains('PP', na=False), 'tipo'] = 'PP'
