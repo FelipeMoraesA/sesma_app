@@ -440,6 +440,10 @@ elif type_problem == 'Imprimir Preparação Pagamento' and file != None:
 	
 			st.error('Erro ao tentar ler o arquivo, verifique a quantidade de linhas a pular.')
 
+elif type_problem == 'Imprimir Preparação Pagamento':
+
+	st.info('Geralmente pular 9 linhas - Primeira Ordem Bancária')
+
 elif type_problem == 'Listar Preparação Pagamento' and file != None:
 
 	visualizar = st.button('Visualizar Planilha')
